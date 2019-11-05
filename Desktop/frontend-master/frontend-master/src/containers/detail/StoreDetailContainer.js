@@ -4,14 +4,18 @@ import axios from  'axios'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as detailActions from 'modules/detail'
-import { GooleMap, withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
+import { GooleMap, withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
 function Map(){
   return(
     <GoogleMap
-      defaultZoom={10}
-      defaultCenter={{ lat: 45.421532, lng: -75.697189}}
-    />
+      defaultZoom={15}
+      defaultCenter={{ lat: 37.264054942277696, lng: 127.47453904514336}}
+    >
+    {<Marker
+      position={{ lat: 37.264054942277696, lng: 127.47453904514336}}
+    />}
+    </GoogleMap>
   );
 }
 
@@ -95,9 +99,9 @@ class StoreDetailContainer extends React.Component {
           </Table>        
       </Segment>
      </div>
-        <div style={{ width: "50vw", height: "100vh"}}>
-        <WrappedMap
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places`}
+        <div style={{ width: "50vw", height: "50vh", margin:"auto"}} >
+        <WrappedMap 
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDLzenxrRx5YTmIKPBBcxC3ibqvawGWQWE&v=3.exp&libraries=geometry,drawing,places`}
           loadingElement={<div style={{ height: "100%"}} />}
           containerElement={<div style={{ height: "100%"}} />}
           mapElement={<div style={{ height: "100%"}} />}
