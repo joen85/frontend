@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Header, Icon, Image, Message, Table  } from 'semantic-ui-react'
+import { Segment, Header, Icon, Image, Message, Table, TableBody  } from 'semantic-ui-react'
 import axios from  'axios'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -53,9 +53,17 @@ class StoreDetailContainer extends React.Component {
     });
   }
 
+  handleClick = (e) => {    
+    // 화면이동
+    const clickUrl =  e.currentTarget.getAttribute("data-url");
+    this.props.history.push(clickUrl);
+  }
+
   render() {
     const WrappedMap = withScriptjs(withGoogleMap(Map))
     const { storeList, menuList, fileList } = this.props;
+    const { handleClick } = this;
+    let shopSeq = storeList[0].storeSeq;
     return (
       <div>
       <div> 
@@ -84,6 +92,7 @@ class StoreDetailContainer extends React.Component {
                   <Table.HeaderCell>품목</Table.HeaderCell>
                   <Table.HeaderCell>남은수량</Table.HeaderCell>
                   <Table.HeaderCell>1개당가격</Table.HeaderCell>
+                   
               </Table.Row>
               </Table.Header>
 
@@ -93,10 +102,20 @@ class StoreDetailContainer extends React.Component {
                   <Table.Cell >{object.menuName}</Table.Cell>
                   <Table.Cell>{object.menuCnt}</Table.Cell>
                   <Table.Cell>{object.menuAmt}</Table.Cell>
+                
                 </Table.Row>
               ))}                  
               </Table.Body>
+              <Table.Body>
+
+              </Table.Body>
           </Table>        
+          <div tabindex="0" class="ui vertical animated button" onClick={handleClick} data-url={'/mitem/'+shopSeq} >
+                    <div class="hidden content">Shop</div>
+                    <div class="visible content">
+                      <i class="shop icon"></i>
+                    </div>
+                  </div> 
       </Segment>
      </div>
         <div style={{ width: "50vw", height: "50vh", margin:"auto"}} >
