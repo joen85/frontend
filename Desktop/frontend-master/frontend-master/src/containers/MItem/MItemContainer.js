@@ -27,7 +27,7 @@ class MItemContainer extends React.Component {
 
   //렌더링 이후 실행되는 함수
   componentDidMount() {
-    this.handleGetList();
+    //this.handleGetList();
   }
 
   //저장된 리스트 조회
@@ -62,7 +62,7 @@ class MItemContainer extends React.Component {
   }
   //화면 그리기
   render() {
-      const { menuList } = this.props;
+      const { menuList } = 	this.props;
       return (
         <div> 
         <div>
