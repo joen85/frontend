@@ -7,19 +7,49 @@ import {
 } from 'semantic-ui-react'
 import style from 'style/style'
 //import { SampleList } from 'components'
-//import axios from  'axios'
-//import { connect } from 'react-redux'
-//import { bindActionCreators } from 'redux'
-//import * as listActions from 'modules/list'
+import axios from  'axios'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as listActions from 'modules/mylist'
 
 
 /** [마이리스트 컨테이너] */
 
 class MyContainer extends React.Component {
  
+  //렌더링 이후 실행되는 함수
+  componentDidMount() {
+    console.log("componentDidMount");
+    this.handleGetMyList();
+  }
+
+  //저장된 리스트 조회
+  handleGetMyList = () => {
+    console.log("handleGetMyList")
+    const { MyAction } = this.props;
+    axios({
+      url: "http://116.120.58.40:9090/api/customer/users/reservationList",
+      method:"get",
+      headers: { "Pragma": 'no-cache' }  
+    })
+    .then( (response) => {
+      console.log(response)
+      if (response == null){
+          console.log('response is null!');
+      }else {
+          //조회한 데이터 store에 셋팅
+          console.log(response.data.myList)
+          MyAction.setMylist(response.data.myList);
+      }
+    }).catch(function(error) {
+      console.log(error.response);
+    });
+  }
+
   //화면 그리기
   render() {
-//      const { list } = this.props;
+      const { mylist } = this.props;
+
       return (
           <div>
           <Segment textAlign='center'>
@@ -60,4 +90,14 @@ class MyContainer extends React.Component {
   }
 }
 
-export default MyContainer
+//export default MyContainer
+
+
+export default connect(
+  (state) => ({ 
+      myList: state.mylist.get('myList')
+  })
+  , (dispatch) => ({ 
+      MyAction : bindActionCreators(myActions, dispatch)
+  })
+)(MyContainer); 
