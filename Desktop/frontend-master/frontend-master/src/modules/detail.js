@@ -7,6 +7,7 @@ import { Map } from 'immutable';
 const SET_STORE = 'detail/SET_STORE';
 const SET_MENU = 'detail/SET_MENU';
 const SET_FILE = 'detail/SET_FILE';
+const SET_MITEM = 'detail/SET_MITEM';
 
 /*
  * 액션 생성 함수 정의
@@ -14,6 +15,7 @@ const SET_FILE = 'detail/SET_FILE';
 export const setStore = createAction(SET_STORE);
 export const setMenu = createAction(SET_MENU);
 export const setFile = createAction(SET_FILE);
+export const setMitem = createAction(SET_MITEM);
 
  /*
   * 초기상태 정의
@@ -34,5 +36,8 @@ export default handleActions({
   },
   [SET_FILE] : (state, action) => {
     return state.set('fileList', action.payload)
+  },
+  [SET_MITEM] : (state, action) => {
+    return state.set('menuList', action.payload)
   }
 }, initialState)
