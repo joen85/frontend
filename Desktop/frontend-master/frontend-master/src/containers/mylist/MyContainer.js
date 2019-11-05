@@ -5,8 +5,6 @@ import {
   Item,
   Icon, Table, Segment
 } from 'semantic-ui-react'
-import style from 'style/style'
-import { MyList } from 'components'
 import axios from  'axios'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -26,13 +24,12 @@ class MyContainer extends React.Component {
 
   //렌더링 이후 실행되는 함수
   componentDidMount() {
-    console.log('componentDidMount');
     this.handleGetMyList();
   }
 
   //저장된 리스트 조회
   handleGetMyList = () => {
-    console.log(handleGetMyList);
+    console.log("handleGetMyList");
     const { MyAction } = this.props;
     axios({
       url: "http://116.120.58.40:9090/api/customer/users/reservationList",
@@ -46,7 +43,7 @@ class MyContainer extends React.Component {
       }else {
           //조회한 데이터 store에 셋팅
           console.log(response.data.myList);
-          MyAction.setMylist(response.data.myList);
+          MyAction.setMylist(response.data);
       }
     }).catch(function(error) {
       console.log(error.response);
@@ -109,12 +106,14 @@ class MyContainer extends React.Component {
   }
 }
 
+MyContainer.defaultProps = {
+  myList : []
+};
+
 //export default MyContainer
-
-
 export default connect(
   (state) => ({ 
-      myList: state.list.get('myList')
+      myList: state.mylist.get('myList')
   })
   , (dispatch) => ({ 
       MyAction : bindActionCreators(myActions, dispatch)
