@@ -101,7 +101,7 @@ class StoreDetailContainer extends React.Component {
      </div>
         <div style={{ width: "50vw", height: "50vh", margin:"auto"}} >
         <WrappedMap 
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDLzenxrRx5YTmIKPBBcxC3ibqvawGWQWE&v=3.exp&libraries=geometry,drawing,places`}
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places`}
           loadingElement={<div style={{ height: "100%"}} />}
           containerElement={<div style={{ height: "100%"}} />}
           mapElement={<div style={{ height: "100%"}} />}
