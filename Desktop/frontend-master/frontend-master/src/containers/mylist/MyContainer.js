@@ -16,7 +16,7 @@ import * as listActions from 'modules/mylist'
 /** [마이리스트 컨테이너] */
 
 class MyContainer extends React.Component {
- 
+  
   //렌더링 이후 실행되는 함수
   componentDidMount() {
     console.log("componentDidMount");

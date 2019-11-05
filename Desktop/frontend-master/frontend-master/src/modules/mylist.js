@@ -11,13 +11,13 @@ const SET_MYLIST = 'mylist/SET_MYLIST';
  */
 export const setMylist = createAction(SET_MYLIST);
  /*
-  * 초기상태 정의
+  * 초기상태 정의f
   */
  const initialState = Map({
      mylist: [],
  });
 
- /*
+ /*  
  * reducer 작성
  */
 export default handleActions({
