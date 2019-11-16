@@ -3,7 +3,7 @@ import greyImage from 'public/assets/img/grey-image.png';
 import { Item } from 'semantic-ui-react'
 import style from 'style/style'
 
-/** [리스트 컴포넌트 - 반복영역] */ 
+/** [리스트 컴포넌트 - 반복영역] */
 
 const MyList = ({mylist}) => {
   /* 같은형태의 component는 .map을 이용해서 반복적으로 그린다 */

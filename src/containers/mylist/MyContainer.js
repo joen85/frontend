@@ -22,7 +22,7 @@ class MyContainer extends React.Component {
       };
   } 
 
-  //렌더링 이후 실행되는 함수
+  //렌더링 이후 실행되는 함수 
   componentDidMount() {
     this.handleGetMyList();
   }
