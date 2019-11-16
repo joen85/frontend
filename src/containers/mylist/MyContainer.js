@@ -76,8 +76,8 @@ class MyContainer extends React.Component {
                     <Table.Cell>{object.resvDt}</Table.Cell>
                     <Table.Cell>{object.storeName}</Table.Cell>
                     <Table.Cell>{object.resvPhone}</Table.Cell>
-                    <Table.Cell>{object.menuAmt}</Table.Cell>  
-                    <Table.Cell><Icon name='heart outline' color='teal'/></Table.Cell>
+                    <Table.Cell>{object.menuName}</Table.Cell>  
+                    <Table.Cell><Icon name='heart' color='teal'/></Table.Cell>
                   </Table.Row>                    
                 ))}                  
                 </Table.Body>

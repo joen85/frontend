@@ -16,7 +16,7 @@ const MyList = ({mylist}) => {
                   <Table.Cell>{object.resvDt}</Table.Cell>
                   <Table.Cell>{object.storeName}</Table.Cell>
                   <Table.Cell>{object.resvPhone}</Table.Cell>
-                  <Table.Cell>{object.menuAmt}</Table.Cell>                  
+                  <Table.Cell>{object.menuName}</Table.Cell>                  
                 </Table.Row>
                   
               ))}                  
