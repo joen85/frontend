@@ -20,7 +20,7 @@ class MyContainer extends React.Component {
       super(props);
       this.state = {
       };
-  }
+  } 
 
   //렌더링 이후 실행되는 함수
   componentDidMount() {
