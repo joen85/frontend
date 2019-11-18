@@ -39,7 +39,9 @@ class App extends React.Component {
     const clickUrl =  e.currentTarget.getAttribute("data-url");
     this.props.history.push(clickUrl);
   }
-
+  handleSetItem =(e) => {
+    console.log(55555);
+  }
   render() {
     const { list } = this.props;
     return (
