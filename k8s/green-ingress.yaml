@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: green-ingress
   namespace: submodule-template  
+  annotations:
+    ingress.bluemix.net/rewrite-path: "serviceName=green-server-service rewrite=/"  
 spec:
   rules:
   - host: green.com
@@ -12,3 +14,7 @@ spec:
         backend:
           serviceName: green-service
           servicePort: 80
+      - path: /server/
+        backend:
+          serviceName: green-server-service
+          servicePort: 9090          

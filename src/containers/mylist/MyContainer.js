@@ -9,6 +9,7 @@ import axios from  'axios'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as myActions from 'modules/mylist'
+import { eventNames } from 'cluster'
 
 
 /** [마이리스트 컨테이너] */
@@ -32,7 +33,7 @@ class MyContainer extends React.Component {
     console.log("handleGetMyList");
     const { MyAction } = this.props;
     axios({
-      url: "http://116.120.58.40:9090/api/customer/users/reservationList",
+      url: process.env.API_URL + "/api/customer/users/reservationList",
       method:"get",
       headers: { "Pragma": 'no-cache' }  
     })

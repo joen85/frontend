@@ -74,6 +74,7 @@ module.exports = {
             inject: true, //true or body로 설정하면 body 태그의 맨 마지막에 bundle.js import
             filename: path.join(__dirname, './dist/index.html')
         }),
+        new webpack.DefinePlugin({ 'process.env.API_URL': JSON.stringify('') }),
         new ManifestPlugin({
           fileName: 'assets.json',
           basePath: '/'

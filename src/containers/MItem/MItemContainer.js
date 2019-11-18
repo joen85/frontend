@@ -84,7 +84,7 @@ class MItemContainer extends React.Component {
     ;
     console.log("param");
     console.log(param);
-    axios.post(`http://116.120.58.40:9090/api/customer/users/reservation`, { param })
+    axios.post(process.env.API_URL + `/api/customer/users/reservation`, { param })
       .then(response => {
         if (response == null){
                 console.log('response is null!');
