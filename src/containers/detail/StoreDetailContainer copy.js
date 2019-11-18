@@ -33,7 +33,8 @@ class StoreDetailContainer extends React.Component {
     const param = window.location.pathname.replace('/detail/', '');
     const { DetailAction } = this.props;
     axios({
-      url: "http://116.120.58.40:9090/api/customer/stores/"+param+"?lat=37.264054942277696&lng=127.47453904514336",
+      url: process.env.API_URL +"/api/customer/stores/"+param+"?lat=37.264054942277696&lng=127.47453904514336",
+      //url: "http://116.120.58.40:9090/api/customer/stores/"+param+"?lat=37.264054942277696&lng=127.47453904514336",
       method:"get",
       headers: { "Pragma": 'no-cache' }  
     })
