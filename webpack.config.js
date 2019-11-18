@@ -2,6 +2,7 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const cleanWebpackPlugin = require("clean-webpack-plugin");
 const ManifestPlugin = require('webpack-manifest-plugin');
+const webpack = require('webpack');
 module.exports = {
     mode: "production",
     entry: {
