@@ -32,7 +32,7 @@ class MyContainer extends React.Component {
     console.log("handleGetMyList");
     const { MyAction } = this.props;
     axios({
-      url: "http://116.120.58.40:9090/api/customer/users/reservationList",
+      url: process.env.API_URL + "/api/customer/users/reservationList",
       method:"get",
       headers: { "Pragma": 'no-cache' }  
     })
