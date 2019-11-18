@@ -62,6 +62,8 @@ class MItemContainer extends React.Component {
     //   headers: { "Pragma": 'no-cache' } 
 ////api/customer/users/reservation/{storeSeq}
 //업체 예약 하기
+    console.log("asdsadsad"+this.state.pdcount+"pdcount");
+
     var param = 
     {
       "reqText": "생일자가 있습니다. 음악 좀 준비해주세요",
@@ -69,17 +71,18 @@ class MItemContainer extends React.Component {
       "resvPhone": "01012341234",
       "resvSeq": 3,
       "storeName": "비어캔치킨",
-      "storeSeq": 11,
+      "storeSeq": window.location.pathname.replace('/mitem/', ''),
       "userResvMenuVO": [
         {
-          "menuCnt": 1,
+          "menuCnt": this.state.pdcount,
           "menuSeq": object.menuSeq,
-          "resvSeq": 11,
+          "resvSeq": 3,
           "storeSeq": window.location.pathname.replace('/mitem/', '')
         }
       ]
     }
     ;
+    console.log("param");
     console.log(param);
     axios.post(`http://116.120.58.40:9090/api/customer/users/reservation`, { param })
       .then(response => {
