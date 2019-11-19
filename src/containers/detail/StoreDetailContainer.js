@@ -112,7 +112,7 @@ class StoreDetailContainer extends React.Component {
 
               </Table.Body>
           </Table>        
-          {storeList[0].freeYn === "Y" ?
+          {storeList[0].freeYn === "" ?
                 <div tabindex="0" class="ui vertical animated button" onClick={handleClick} data-url={'/mitem/'+shopSeq} >
                 <div class="hidden content">Shop</div>
                 <div class="visible content">
