@@ -65,6 +65,7 @@ class StoreDetailContainer extends React.Component {
     const { storeList, menuList, fileList } = this.props;
     const { handleClick } = this;
     let shopSeq = storeList[0].storeSeq;
+    //object.freeYn
     return (
       <div>
       <div> 
@@ -78,7 +79,7 @@ class StoreDetailContainer extends React.Component {
           </Header>
           <Header as='h4' textAlign='center'>
             <Header.Content><Icon name='clock'/>{storeList[0].storeStTm}시 ~ {storeList[0].storeEdTm}시</Header.Content> 
-            <Header.Subheader><Icon name='phone'/>{storeList[0].storePhone}</Header.Subheader>
+            <Header.Subheader><Icon name='phone'/><a href='tel:'>{storeList[0].storePhone} </a></Header.Subheader>
           </Header>       
 
           <Image.Group size='large'>
@@ -111,14 +112,26 @@ class StoreDetailContainer extends React.Component {
 
               </Table.Body>
           </Table>        
-          <div tabindex="0" class="ui vertical animated button" onClick={handleClick} data-url={'/mitem/'+shopSeq} >
-                    <div class="hidden content">Shop</div>
+          {storeList[0].freeYn === "Y" ?
+                <div tabindex="0" class="ui vertical animated button" onClick={handleClick} data-url={'/mitem/'+shopSeq} >
+                <div class="hidden content">Shop</div>
+                <div class="visible content">
+                  <i class="shop icon"></i>
+                </div>
+              </div> 
+                :
+                <div tabindex="0" class="ui vertical animated button" >
+                    <div class="hidden content">준비중</div>
                     <div class="visible content">
                       <i class="shop icon"></i>
                     </div>
-                  </div> 
+                  </div>                
+            }
+                  
+               
       </Segment>
      </div>
+
         <div style={{ width: "50vw", height: "50vh", margin:"auto"}} >
         <WrappedMap 
           googleMapURL={`https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places`}
